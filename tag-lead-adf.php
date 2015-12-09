@@ -27,11 +27,7 @@ $form_data = json_decode($unescaped_post_data['data_json']);
 $email = $form_data->email[0];
 $name = $form_data->name[0];
 $phone = $form_data->phone[0];
-$zip_code = $form_data->zipcode[0];
-$member = $form_data->are_you_currently_a_farm_bureau_member[0];
-//$submitted = $form_data->submission_date[0] . ' ' . $form_data->submission_time[0];
-$submitted = date("F j, Y, g:i a");  
-$routeto = "andrew@workshopdigital.com";
+$date = date("F j, Y, g:i a");  
 
  
 // Assemble the body of the email...                                              
@@ -63,7 +59,7 @@ EOM;
 
 $headers .= 'From: ' . $email . "\r\n";
  
-mail($routeto,
+mail('andrew@workshopdigital.com',
      'TAG Lead',
      $message_body, $headers);
 ?>
